@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as API from './services/data.js';
+import loginImage from './assets/login.webp';
 
 export function Login() {
 
@@ -19,11 +20,12 @@ export function Login() {
 
     return (
         <>
+            <img src={loginImage} />
             <h1>Iniciar sesión</h1>
             <form id="formulario" onSubmit={handleSubmit}>
-                <label>Usuario</label>
-                <input type='text' id="usuario" onChange={event => setTeacher({ ...teacher, usuario: event.target.value })}></input>
-                <label>Password</label>
+                <label htmlFor="usuario">Usuario</label>
+                <input name="usuario" type='text' id="usuario" onChange={event => setTeacher({ ...teacher, usuario: event.target.value })}></input>
+                <label htmlFor='password'>Password</label>
                 <input type='password' id="password" onChange={event => setTeacher({ ...teacher, password: event.target.value })}></input>
                 <input type="submit" id="enviar" />
             </form>
