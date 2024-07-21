@@ -1,8 +1,11 @@
-export function Header(){
-    return(
+import { Link } from "react-router-dom";
+export function Header() {
+    return (
         <>
             <p>
-                <span>Listado</span><span>Nuevo</span><span>Cerrar sesion</span>
+                <Link to={'/dashboard'}>Listado</Link>
+                <Link to={'/student'}>Nuevo</Link>
+                <span>Cerrar sesion</span>
             </p>
         </>
     );
