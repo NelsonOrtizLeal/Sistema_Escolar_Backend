@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import * as API from './services/data.js';
 import loginImage from './assets/login.webp';
+import { useNavigate } from 'react-router-dom';
 
 export function Login() {
 
     const [teacher, setTeacher] = useState({ usuario: '', password: '' })
+
+    const navigate = useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -12,7 +15,7 @@ export function Login() {
         const response = await API.login(teacher.usuario, teacher.password);
 
         if (response.length != 0) {
-            alert("Usuario correcto.");
+            navigate('/dashboard');
         } else {
             alert("Usuario o contraseña incorrecta.")
         }
