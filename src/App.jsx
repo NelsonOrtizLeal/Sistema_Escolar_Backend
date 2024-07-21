@@ -1,10 +1,10 @@
-import { Ejemplo } from './Ejemplo.jsx';
+import { Routes, Route } from 'react-router-dom';
+import { Login } from './Login';
 
 export function App() {
   return (
-    <>
-      <h1>Hola mundo</h1>
-      <Ejemplo />
-    </>
+    <Routes>
+      <Route path="/" element={<Login />}></Route>
+    </Routes>
   )
 }
