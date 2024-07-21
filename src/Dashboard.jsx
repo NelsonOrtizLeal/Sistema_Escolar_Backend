@@ -1,7 +1,11 @@
-export function Dashboard(){
+import { Header } from './Header';
+import { StudentList } from './StudentList';
+
+export function Dashboard() {
     return (
         <>
-        <h1>Aqui ira el tablero de alumnos</h1>
+            <Header />
+            <StudentList />
         </>
     );
 }
