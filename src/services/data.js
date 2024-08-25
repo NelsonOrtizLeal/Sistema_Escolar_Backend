@@ -14,3 +14,15 @@ export function login(usuario, pass) {
         }
     ).then(data => data.text())
 }
+
+// Función para obtener la listas de estudiantes de un profesor
+export function getAlumnoProfesor(usuario){
+    return fetch(URL + "/Alumno/alumnoProfesor?usuario=" + usuario,
+        {
+            method: "GET",
+            headers: {
+                "content-Type": "application/json"
+            }
+        }
+    ).then(data => data.json())
+}

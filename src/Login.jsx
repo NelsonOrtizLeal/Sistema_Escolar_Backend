@@ -15,6 +15,7 @@ export function Login() {
         const response = await API.login(teacher.usuario, teacher.password);
 
         if (response.length != 0) {
+            sessionStorage.setItem('usuario', teacher.usuario);
             navigate('/dashboard');
         } else {
             alert("Usuario o contraseña incorrecta.")
