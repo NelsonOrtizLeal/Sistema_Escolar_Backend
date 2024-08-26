@@ -26,3 +26,24 @@ export function getAlumnoProfesor(usuario){
         }
     ).then(data => data.json())
 }
+
+// Funcion para agregar un nuevo alumno
+export function createStudent(student){
+    const data = {
+        dni: student.dni,
+        nombre: student.nombre,
+        direccion: student.direccion,
+        edad: student.edad,
+        email: student.email
+    }
+
+    return fetch(URL + "/Alumno/alumno?id_asignatura=" + student.asignatura,
+        {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "content-Type": "application/json"
+            }
+        }
+    ).then(data => data.text())
+}
