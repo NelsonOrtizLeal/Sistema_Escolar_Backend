@@ -43,12 +43,12 @@ export function StudentList() {
           {students?.map((student) => (
             <tr key={student.id}>
               <td>{student.id}</td>
-              <td>{student.dbi}</td>
+              <td>{student.dni}</td>
               <td>{student.nombre}</td>
               <td>{student.direccion}</td>
               <td>{student.edad}</td>
               <td>{student.email}</td>
-              <td>{student.asignatura}</td>
+              <td>{student.asignaturaNombre}</td>
               <td>Calificar</td>
               <td>Editar</td>
               <td onClick={() => deleteStudent(student.id)}>Eliminar</td>
