@@ -12,6 +12,16 @@ export function StudentList() {
     });
   });
 
+  function deleteStudent(id) {
+    API.deleteStudent(id).then((response) => {
+      if (response == "true") {
+        alert("Alumno eliminado");
+      } else {
+        alert("No se pudo eliminar el usuario");
+      }
+    });
+  }
+
   return (
     <>
       <table>
@@ -41,7 +51,7 @@ export function StudentList() {
               <td>{student.asignatura}</td>
               <td>Calificar</td>
               <td>Editar</td>
-              <td>Eliminar</td>
+              <td onClick={() => deleteStudent(student.id)}>Eliminar</td>
             </tr>
           ))}
         </tbody>
