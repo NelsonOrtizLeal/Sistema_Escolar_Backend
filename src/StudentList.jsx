@@ -1,5 +1,6 @@
 import * as API from "./services/data.js";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export function StudentList() {
   const usuario = sessionStorage.getItem("usuario");
@@ -10,7 +11,7 @@ export function StudentList() {
     API.getAlumnoProfesor(usuario).then((data) => {
       setStudents(data);
     });
-  });
+  }, [usuario]);
 
   function deleteStudent(id) {
     API.deleteStudent(id).then((response) => {
@@ -50,7 +51,9 @@ export function StudentList() {
               <td>{student.email}</td>
               <td>{student.asignaturaNombre}</td>
               <td>Calificar</td>
-              <td>Editar</td>
+              <td>
+                <Link to={"/student/" + student.id}>Editar</Link>
+              </td>
               <td onClick={() => deleteStudent(student.id)}>Eliminar</td>
             </tr>
           ))}

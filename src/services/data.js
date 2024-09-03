@@ -51,3 +51,13 @@ export function deleteStudent(id) {
     },
   }).then((data) => data.text());
 }
+
+// Funcipon para obtener toda la informacion de un estudiante
+export function getStudent(id) {
+  return fetch(URL + "/Alumno/alumno?id=" + id, {
+    method: "GET",
+    headers: {
+      "content-Type": "application/json",
+    },
+  }).then((data) => data.json());
+}
