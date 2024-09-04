@@ -50,7 +50,11 @@ export function StudentList() {
               <td>{student.edad}</td>
               <td>{student.email}</td>
               <td>{student.asignaturaNombre}</td>
-              <td>Calificar</td>
+              <td>
+                <Link to={"/student/califications/" + student.matriculaId}>
+                  Calificar
+                </Link>
+              </td>
               <td>
                 <Link to={"/student/" + student.id}>Editar</Link>
               </td>
