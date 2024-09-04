@@ -19,7 +19,13 @@ export function StudentEdit() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    alert("Información actualizada");
+    API.UpdateAlumno(student).then((response) => {
+      if (response == "true") {
+        alert("Información actualizada");
+      } else {
+        alert("Error al actualizar la información");
+      }
+    });
   }
 
   return (
@@ -30,18 +36,50 @@ export function StudentEdit() {
         <input type="text" id="dni" required disabled value={student.dni} />
         <br></br>
         Nombre
-        <input type="text" id="nombre" required value={student.nombre} />
+        <input
+          type="text"
+          id="nombre"
+          required
+          value={student.nombre}
+          onChange={(event) =>
+            setStudent({ ...student, nombre: event.target.value })
+          }
+        />
         <br></br>
         Direccion
-        <input type="text" id="direccion" required value={student.direccion} />
+        <input
+          type="text"
+          id="direccion"
+          required
+          value={student.direccion}
+          onChange={(event) =>
+            setStudent({ ...student, direccion: event.target.value })
+          }
+        />
         <br></br>
         Edad
-        <input type="number" id="edad" required value={student.edad} />
+        <input
+          type="number"
+          id="edad"
+          required
+          value={student.edad}
+          onChange={(event) =>
+            setStudent({ ...student, edad: event.target.value })
+          }
+        />
         <br></br>
         Email
-        <input type="email" id="email" required value={student.email} />
+        <input
+          type="email"
+          id="email"
+          required
+          value={student.email}
+          onChange={(event) =>
+            setStudent({ ...student, email: event.target.value })
+          }
+        />
         <br></br>
-        <input type="submit" id="editar" value="editar"/>
+        <input type="submit" id="editar" value="editar" />
       </form>
     </>
   );

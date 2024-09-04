@@ -61,3 +61,14 @@ export function getStudent(id) {
     },
   }).then((data) => data.json());
 }
+
+// Función para actualizar la información de un studiante
+export function UpdateAlumno(student) {
+  return fetch(URL + "/Alumno/alumno", {
+    method: "PUT",
+    headers: {
+      "content-Type": "application/json",
+    },
+    body: JSON.stringify(student),
+  }).then((data) => data.text());
+}
