@@ -72,3 +72,18 @@ export function UpdateAlumno(student) {
     body: JSON.stringify(student),
   }).then((data) => data.text());
 }
+
+// Fución para obtener todas las califiaciones de una matricula
+export function CalificacionesMatricula(matriculaId) {
+  return fetch(
+    URL + "/Calificacion/calificaciones?id_matricula=" + matriculaId,
+    {
+      method: "GET",
+      headers: {
+        "content-Type": "application/json",
+      },
+    }
+  ).then((data) => data.json());
+}
+
+// Función para registrar una califiación de un alumno en su matricula (Materia escolar)
